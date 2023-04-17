@@ -7,11 +7,8 @@ const ingredients = [
   "Condiments",
 ];
 
-for (const ingridient of ingredients) {
-  const ingItemEl = document.createElement("li");
-  ingItemEl.textContent = ingridient;
-  ingItemEl.classList = "item";
-  console.log(ingItemEl);
-  const list = document.getElementById('ingredients')
-  list.append(ingItemEl)
-}
+const list = document.getElementById("ingredients");
+const ingItemEl = ingredients
+  .map((ingridient) => `<li>${ingridient}</li>`)
+  .join(" ");
+list.insertAdjacentHTML("afterbegin", ingItemEl);
